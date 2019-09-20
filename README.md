@@ -38,7 +38,7 @@ export default {
    mixins: [searchMixins],
    data () {
    return {
-      listApiName: '/api', //接口地址，是必须配置的 在searchMixins里面有使用
+      listApiName: '/api', //接口地址
    }
    }
 }
