@@ -111,11 +111,17 @@ export function deleteAction(url, parameter) {
  * @param parameter
  * @returns {*}
  */
-export function downFile(url, parameter) {
-  return axios({
+export function downFile(url, parameter, name) {
+  axios({
     url: url,
     params: parameter,
     method: "get",
     responseType: "blob"
+  }).then(res => {
+    var oa = document.createElement("a");
+    oa.href = URL.createObjectURL(new Blob([res["data"]]));
+    oa.download = name;
+    document.body.appendChild(oa);
+    oa.click();
   });
 }
